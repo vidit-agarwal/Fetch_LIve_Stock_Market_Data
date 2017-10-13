@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PFM</string>
+    <string name ="share_name_title">Stock Name  : </string>
+    <string name="fetch_data">Fetch Data</string>
+    <string name="shareName">ShareName</string>
+    <string name="share">Share</string>
+    <string name="stock_exchange" >Stock Exchange</string>
+    <string name="stock_exchange_name">NSE</string>
+    <string name="search">Search</string>
+    <string name="Rs">&#032;&#032;Share Price  :</string>
+</resources>
