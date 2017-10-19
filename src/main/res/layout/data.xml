@@ -1038,6 +1038,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="28dp"
-        android:onClick="refresh"/>
+        android:onClick="refresh"
+        />
 
 </RelativeLayout>

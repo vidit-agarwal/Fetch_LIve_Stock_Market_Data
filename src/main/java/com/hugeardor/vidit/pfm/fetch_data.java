@@ -1,5 +1,6 @@
 package com.hugeardor.vidit.pfm;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +20,13 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.Buffer;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.logging.Handler;
+
 import android.graphics.Color ;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -39,7 +46,7 @@ public class fetch_data extends AppCompatActivity {
     InputStream is = null ;
     String line = null;
     String result = null ;
-    String sn , sy , sp , pt , nc , pc , vol , op , pcp , bd , mc , pe , div_y , fv , live;
+    String sn , sy , sp , pt , nc , pc , vol , op , pcp , bd , mc , pe , div_y , fv , live, status;
 
     String rs = "  \u20B9" ;
     ConnectionDetector cd ;
@@ -88,22 +95,21 @@ public class fetch_data extends AppCompatActivity {
 
 
 
+
     }
     public void update()
     {
             String percent = "  %" ;
         int hour = cal.get(Calendar.HOUR_OF_DAY) ;
         int minute = cal.get(Calendar.MINUTE) ;
-        if ((hour>=9 && minute >=15 ) && (hour<=15 || minute <=30) )
-                live="  LIVE  " ;
-        else
-            live="  EOD  " ;
+
+
 
         share_name.setText(sn);
         share_symbol.setText(sy);
         share_price.setText(sp + rs);
 
-        ct.setText(live); // for setting live or end sesion
+        ct.setText(status); // for setting live or end sesion
 
         price_time.setText(pt);
         net_change.setText(nc + rs);
@@ -135,6 +141,8 @@ public class fetch_data extends AppCompatActivity {
         div.setText(div_y + percent);
         face_value.setText(fv + rs);
     }
+
+
     private void get_data()
     {
         try {
@@ -210,6 +218,8 @@ public class fetch_data extends AppCompatActivity {
                 div_y = jo.getString("Divident_Yeild") ;
 
                 fv = jo.getString("Face_Value");
+            status = jo.getString("status") ;
+
 
 
 
@@ -228,6 +238,8 @@ public class fetch_data extends AppCompatActivity {
 
     }
 
+
+
     public void refresh(View view)
     {
         if(cd.isConnected()) {
@@ -242,4 +254,15 @@ public class fetch_data extends AppCompatActivity {
             finish();
         }
     }
+
+
+
+
+
+
+
+
+
+
 }
+

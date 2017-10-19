@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            Toast.makeText(MainActivity.this , "Network Connected !! " , Toast.LENGTH_SHORT).show();
+           // Toast.makeText(MainActivity.this , "Network Connected !! " , Toast.LENGTH_SHORT).show();
 
         }
 
@@ -169,6 +169,8 @@ public class MainActivity extends AppCompatActivity {
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
         backgroundWorker.execute(type , sharename);*/
 
+        if(share_name.getText().toString().equals("Tata Steel Ltd.")) {
+
         if(cd.isConnected()) {
 
             startActivity(new Intent(MainActivity.this, fetch_data.class));
@@ -176,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
         else {
             Toast.makeText(MainActivity.this , "Connect To Internet !" , Toast.LENGTH_SHORT).show();
         }
-    }
+    }}
 
 
     public void onResume(){
