@@ -2,7 +2,7 @@ from selenium import  webdriver
 import time
 import pymysql
 
-conn_detail = pymysql.connect(host ='pfmdb.cetl3uqzdf3o.us-east-2.rds.amazonaws.com' , unix_socket='/tmp/mysql.sock', user='root', passwd='root-pfm-password' , db='mysql' )
+conn_detail = pymysql.connect(host ='xxxx' , unix_socket='/tmp/mysql.sock', user='xxxx', passwd='xxxxx' , db='mysql' )
 
 cur = conn_detail.cursor()
 
